@@ -1,0 +1,15 @@
+﻿# Site statique gratuit sur Render : sert simplement les fichiers de ce dossier.
+services:
+  - type: web
+    name: velocoach-app
+    runtime: static
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
